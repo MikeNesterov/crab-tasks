@@ -57,57 +57,63 @@
       <button class="filter-btn" data-project="personal">personal</button>
     </div>
 
-    <section class="section">
-      <div class="section-header">
-        <span class="section-emoji">📋</span>
-        <span class="section-title">Cron Jobs</span>
-        <span class="section-count">-</span>
-        <label class="hidden-toggle" id="hidden-toggle">
-          <input type="checkbox" id="show-hidden-checkbox">
-          <span class="hidden-toggle-label">Show hidden</span>
-        </label>
-      </div>
-      <div id="cron-list" class="loading">
-        <div class="loading-spinner"></div>
-        Loading...
-      </div>
-    </section>
+    <div class="columns-layout">
+      <div class="column-tasks">
+        <section class="section">
+          <div class="section-header">
+            <span class="section-emoji">✅</span>
+            <span class="section-title">TODO</span>
+            <span class="section-count">-</span>
+          </div>
+          <div id="todo-list" class="loading">
+            <div class="loading-spinner"></div>
+            Loading...
+          </div>
+        </section>
 
-    <section class="section">
-      <div class="section-header">
-        <span class="section-emoji">✅</span>
-        <span class="section-title">TODO</span>
-        <span class="section-count">-</span>
-      </div>
-      <div id="todo-list" class="loading">
-        <div class="loading-spinner"></div>
-        Loading...
-      </div>
-    </section>
+        <section class="section">
+          <div class="section-header">
+            <span class="section-emoji">🔄</span>
+            <span class="section-title">In Progress</span>
+            <span class="section-count">-</span>
+          </div>
+          <div id="progress-list" class="loading">
+            <div class="loading-spinner"></div>
+            Loading...
+          </div>
+        </section>
 
-    <section class="section">
-      <div class="section-header">
-        <span class="section-emoji">🔄</span>
-        <span class="section-title">In Progress</span>
-        <span class="section-count">-</span>
+        <section class="section">
+          <div class="section-header">
+            <span class="section-emoji">✔️</span>
+            <span class="section-title">Done</span>
+            <span class="section-count">-</span>
+          </div>
+          <div id="done-list" class="loading">
+            <div class="loading-spinner"></div>
+            Loading...
+          </div>
+        </section>
       </div>
-      <div id="progress-list" class="loading">
-        <div class="loading-spinner"></div>
-        Loading...
-      </div>
-    </section>
 
-    <section class="section">
-      <div class="section-header">
-        <span class="section-emoji">✔️</span>
-        <span class="section-title">Done</span>
-        <span class="section-count">-</span>
+      <div class="column-cron">
+        <section class="section">
+          <div class="section-header">
+            <span class="section-emoji">📋</span>
+            <span class="section-title">Cron Jobs</span>
+            <span class="section-count">-</span>
+            <label class="hidden-toggle" id="hidden-toggle">
+              <input type="checkbox" id="show-hidden-checkbox">
+              <span class="hidden-toggle-label">Show hidden</span>
+            </label>
+          </div>
+          <div id="cron-list" class="loading">
+            <div class="loading-spinner"></div>
+            Loading...
+          </div>
+        </section>
       </div>
-      <div id="done-list" class="loading">
-        <div class="loading-spinner"></div>
-        Loading...
-      </div>
-    </section>
+    </div>
   </main>
 
   <footer class="footer">
