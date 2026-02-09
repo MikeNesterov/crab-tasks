@@ -3,6 +3,8 @@ const DATA_URL = 'data/tasks.json';
 
 const DAYS_RU = ['воскресеньям', 'понедельникам', 'вторникам', 'средам', 'четвергам', 'пятницам', 'субботам'];
 
+const PRIORITY_ORDER = { high: 0, medium: 1, low: 2 };
+
 let currentProject = 'all';
 let tasksData = null;
 
@@ -71,90 +73,146 @@ async function loadTasks() {
   }
 }
 
-function filterByProject(items) {
-  if (currentProject === 'all') return items;
-  return items.filter(item => item.project === currentProject);
-}
+function groupByProject(data) {
+  const projects = {};
 
-function createCard(task, type) {
-  const card = document.createElement('div');
-  card.className = `card ${type === 'done' ? 'card-done' : ''}`;
-
-  const projectBadge = task.project
-    ? `<span class="project-badge project-${task.project}">${task.project}</span>`
-    : '';
-
-  if (type === 'cron') {
-    const humanSchedule = parseCronToHuman(task.schedule, task.tz);
-    card.innerHTML = `
-      <div class="card-title">${task.name}</div>
-      <div class="card-meta">
-        <span class="cron-schedule" title="${task.schedule.replace(/"/g, '&quot;')}">${humanSchedule}</span>
-        <span class="cron-status ${task.enabled ? 'cron-enabled' : 'cron-disabled'}">
-          <span class="cron-status-dot"></span>
-          ${task.enabled ? 'Enabled' : 'Disabled'}
-        </span>
-        ${projectBadge}
-      </div>
-    `;
-  } else {
-    const priorityClass = `priority-${task.priority}`;
-    card.innerHTML = `
-      <div class="card-title">${task.title}</div>
-      <div class="card-meta">
-        <span class="priority ${priorityClass}">${task.priority}</span>
-        ${projectBadge}
-        <span class="card-date">${task.created}</span>
-        ${task.completed ? `<span class="card-completed">✓ ${task.completed}</span>` : ''}
-      </div>
-    `;
+  function addItems(items, status) {
+    (items || []).forEach(item => {
+      const proj = item.project || 'other';
+      if (!projects[proj]) {
+        projects[proj] = { tasks: [], crons: [] };
+      }
+      if (status === 'cron') {
+        projects[proj].crons.push(item);
+      } else {
+        projects[proj].tasks.push({ ...item, status });
+      }
+    });
   }
 
-  return card;
+  addItems(data.cronJobs, 'cron');
+  addItems(data.todo, 'todo');
+  addItems(data.inProgress, 'in-progress');
+  addItems(data.done, 'done');
+
+  // Sort tasks by priority within each project
+  for (const proj of Object.values(projects)) {
+    proj.tasks.sort((a, b) => (PRIORITY_ORDER[a.priority] ?? 3) - (PRIORITY_ORDER[b.priority] ?? 3));
+  }
+
+  return projects;
 }
 
-function renderSection(container, items, type, emoji, title) {
+function createTaskRow(task) {
+  const row = document.createElement('div');
+  row.className = `task-row task-row--${task.status}`;
+
+  const statusLabels = { 'todo': 'TODO', 'in-progress': 'In Progress', 'done': 'Done' };
+  const statusIcons = { 'todo': '○', 'in-progress': '◐', 'done': '●' };
+
+  row.innerHTML = `
+    <span class="task-row__status-icon">${statusIcons[task.status]}</span>
+    <span class="task-row__title">${task.title}</span>
+    <span class="task-row__badges">
+      <span class="priority priority-${task.priority}">${task.priority}</span>
+      <span class="task-row__status-label task-row__status-label--${task.status}">${statusLabels[task.status]}</span>
+      ${task.completed ? `<span class="card-completed">✓ ${task.completed}</span>` : ''}
+    </span>
+  `;
+
+  return row;
+}
+
+function createCronRow(cron) {
+  const row = document.createElement('div');
+  row.className = 'task-row task-row--cron';
+
+  const humanSchedule = parseCronToHuman(cron.schedule, cron.tz);
+
+  row.innerHTML = `
+    <span class="task-row__status-icon">⏱</span>
+    <span class="task-row__title">${cron.name}</span>
+    <span class="task-row__badges">
+      <span class="cron-schedule" title="${cron.schedule.replace(/"/g, '&quot;')}">${humanSchedule}</span>
+      <span class="cron-status ${cron.enabled ? 'cron-enabled' : 'cron-disabled'}">
+        <span class="cron-status-dot"></span>
+        ${cron.enabled ? 'Enabled' : 'Disabled'}
+      </span>
+    </span>
+  `;
+
+  return row;
+}
+
+function renderProjectView() {
+  const container = document.getElementById('projects-container');
   container.innerHTML = '';
   container.classList.remove('loading');
 
-  if (!items || items.length === 0) {
-    container.innerHTML = '<div class="empty">No items</div>';
-    const section = container.closest('.section');
-    const countEl = section.querySelector('.section-count');
-    if (countEl) countEl.textContent = 0;
+  const projects = groupByProject(tasksData);
+  const projectNames = Object.keys(projects).sort();
+
+  const filteredNames = currentProject === 'all'
+    ? projectNames
+    : projectNames.filter(name => name === currentProject);
+
+  if (filteredNames.length === 0) {
+    container.innerHTML = '<div class="empty">No projects found</div>';
     return;
   }
 
-  const grid = document.createElement('div');
-  grid.className = 'cards-grid';
+  filteredNames.forEach(projectName => {
+    const proj = projects[projectName];
+    const section = document.createElement('section');
+    section.className = `project-section project-section--${projectName}`;
 
-  items.forEach(item => {
-    grid.appendChild(createCard(item, type));
+    const totalTasks = proj.tasks.length;
+    const doneTasks = proj.tasks.filter(t => t.status === 'done').length;
+    const inProgressTasks = proj.tasks.filter(t => t.status === 'in-progress').length;
+    const todoTasks = proj.tasks.filter(t => t.status === 'todo').length;
+    const cronCount = proj.crons.length;
+
+    // Header
+    const header = document.createElement('div');
+    header.className = 'project-section__header';
+    header.innerHTML = `
+      <div class="project-section__title-row">
+        <span class="project-badge project-${projectName}">${projectName}</span>
+        <span class="project-section__title">${projectName}</span>
+      </div>
+      <div class="project-section__stats">
+        ${todoTasks ? `<span class="project-stat project-stat--todo">${todoTasks} todo</span>` : ''}
+        ${inProgressTasks ? `<span class="project-stat project-stat--progress">${inProgressTasks} in progress</span>` : ''}
+        ${doneTasks ? `<span class="project-stat project-stat--done">${doneTasks} done</span>` : ''}
+        ${cronCount ? `<span class="project-stat project-stat--cron">${cronCount} cron</span>` : ''}
+      </div>
+    `;
+    section.appendChild(header);
+
+    // Task list
+    const taskList = document.createElement('div');
+    taskList.className = 'project-section__tasks';
+
+    proj.tasks.forEach(task => {
+      taskList.appendChild(createTaskRow(task));
+    });
+
+    proj.crons.forEach(cron => {
+      taskList.appendChild(createCronRow(cron));
+    });
+
+    if (proj.tasks.length === 0 && proj.crons.length === 0) {
+      taskList.innerHTML = '<div class="empty">No items</div>';
+    }
+
+    section.appendChild(taskList);
+    container.appendChild(section);
   });
-
-  container.appendChild(grid);
-
-  const section = container.closest('.section');
-  const countEl = section.querySelector('.section-count');
-  if (countEl) countEl.textContent = items.length;
-}
-
-function updateStats(data) {
-  document.getElementById('stat-cron').textContent = filterByProject(data.cronJobs || []).length;
-  document.getElementById('stat-todo').textContent = filterByProject(data.todo || []).length;
-  document.getElementById('stat-progress').textContent = filterByProject(data.inProgress || []).length;
-  document.getElementById('stat-done').textContent = filterByProject(data.done || []).length;
 }
 
 function renderAll() {
   if (!tasksData) return;
-
-  updateStats(tasksData);
-
-  renderSection(document.getElementById('cron-list'), filterByProject(tasksData.cronJobs || []), 'cron', '📋', 'Cron Jobs');
-  renderSection(document.getElementById('todo-list'), filterByProject(tasksData.todo || []), 'task', '✅', 'TODO');
-  renderSection(document.getElementById('progress-list'), filterByProject(tasksData.inProgress || []), 'task', '🔄', 'In Progress');
-  renderSection(document.getElementById('done-list'), filterByProject(tasksData.done || []), 'done', '✔️', 'Done');
+  renderProjectView();
 }
 
 function initFilter() {

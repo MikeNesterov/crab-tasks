@@ -18,37 +18,6 @@
   </header>
 
   <main class="main">
-    <div class="stats-bar">
-      <div class="stat-card">
-        <div class="stat-icon">📋</div>
-        <div class="stat-info">
-          <div class="stat-value" id="stat-cron">-</div>
-          <div class="stat-label">Cron Jobs</div>
-        </div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon">✅</div>
-        <div class="stat-info">
-          <div class="stat-value" id="stat-todo">-</div>
-          <div class="stat-label">TODO</div>
-        </div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon">🔄</div>
-        <div class="stat-info">
-          <div class="stat-value" id="stat-progress">-</div>
-          <div class="stat-label">In Progress</div>
-        </div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-icon">✔️</div>
-        <div class="stat-info">
-          <div class="stat-value" id="stat-done">-</div>
-          <div class="stat-label">Done</div>
-        </div>
-      </div>
-    </div>
-
     <div class="project-filter" id="project-filter">
       <button class="filter-btn active" data-project="all">All</button>
       <button class="filter-btn" data-project="crab-tasks">crab-tasks</button>
@@ -57,53 +26,10 @@
       <button class="filter-btn" data-project="personal">personal</button>
     </div>
 
-    <section class="section">
-      <div class="section-header">
-        <span class="section-emoji">📋</span>
-        <span class="section-title">Cron Jobs</span>
-        <span class="section-count">-</span>
-      </div>
-      <div id="cron-list" class="loading">
-        <div class="loading-spinner"></div>
-        Loading...
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-header">
-        <span class="section-emoji">✅</span>
-        <span class="section-title">TODO</span>
-        <span class="section-count">-</span>
-      </div>
-      <div id="todo-list" class="loading">
-        <div class="loading-spinner"></div>
-        Loading...
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-header">
-        <span class="section-emoji">🔄</span>
-        <span class="section-title">In Progress</span>
-        <span class="section-count">-</span>
-      </div>
-      <div id="progress-list" class="loading">
-        <div class="loading-spinner"></div>
-        Loading...
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-header">
-        <span class="section-emoji">✔️</span>
-        <span class="section-title">Done</span>
-        <span class="section-count">-</span>
-      </div>
-      <div id="done-list" class="loading">
-        <div class="loading-spinner"></div>
-        Loading...
-      </div>
-    </section>
+    <div id="projects-container" class="loading">
+      <div class="loading-spinner"></div>
+      Loading...
+    </div>
   </main>
 
   <footer class="footer">
