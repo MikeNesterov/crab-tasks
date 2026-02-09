@@ -43,18 +43,21 @@ function createCard(task, type) {
 }
 
 function renderSection(container, items, type, emoji, title) {
+  container.innerHTML = '';
+  container.classList.remove('loading');
+
   if (!items || items.length === 0) {
     container.innerHTML = '<div class="empty">No items</div>';
     return;
   }
-  
+
   const grid = document.createElement('div');
   grid.className = 'cards-grid';
-  
+
   items.forEach(item => {
     grid.appendChild(createCard(item, type));
   });
-  
+
   container.appendChild(grid);
   
   // Update count
