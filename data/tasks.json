@@ -83,6 +83,14 @@
       "priority": "high",
       "created": "2026-02-09",
       "project": "personal"
+    },
+    {
+      "id": "todo-5",
+      "title": "Миграция с GitHub Pages на свой хостинг",
+      "priority": "low",
+      "created": "2026-02-09",
+      "project": "crab-tasks",
+      "note": "Рассмотреть: Vercel, Cloudflare Pages, свой VPS, Coolify"
     }
   ],
   "inProgress": [
