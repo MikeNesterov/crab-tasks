@@ -5,6 +5,7 @@ const DAYS_RU = ['воскресеньям', 'понедельникам', 'вт
 
 let currentProject = 'all';
 let tasksData = null;
+let showHidden = false;
 
 function parseCronToHuman(cronExpr, tz) {
   const parts = cronExpr.trim().split(/\s+/);
@@ -85,9 +86,16 @@ function createCard(task, type) {
     : '';
 
   if (type === 'cron') {
+    if (task.hidden) card.classList.add('card-hidden');
     const humanSchedule = parseCronToHuman(task.schedule, task.tz);
+    const visibilityBtn = task.hidden
+      ? `<button class="visibility-btn unhide-btn" data-id="${task.id}" title="Unhide">👁️</button>`
+      : `<button class="visibility-btn hide-btn" data-id="${task.id}" title="Hide">👁️‍🗨️</button>`;
     card.innerHTML = `
-      <div class="card-title">${task.name}</div>
+      <div class="card-header">
+        <div class="card-title">${task.name}</div>
+        ${visibilityBtn}
+      </div>
       <div class="card-meta">
         <span class="cron-schedule" title="${task.schedule.replace(/"/g, '&quot;')}">${humanSchedule}</span>
         <span class="cron-status ${task.enabled ? 'cron-enabled' : 'cron-disabled'}">
@@ -113,11 +121,27 @@ function createCard(task, type) {
   return card;
 }
 
+function filterCronVisibility(items) {
+  if (showHidden) return items;
+  return items.filter(item => !item.hidden);
+}
+
+function toggleCronHidden(id) {
+  if (!tasksData) return;
+  const job = tasksData.cronJobs.find(j => j.id === id);
+  if (job) {
+    job.hidden = !job.hidden;
+    renderAll();
+  }
+}
+
 function renderSection(container, items, type, emoji, title) {
   container.innerHTML = '';
   container.classList.remove('loading');
 
-  if (!items || items.length === 0) {
+  const displayItems = type === 'cron' ? filterCronVisibility(items) : items;
+
+  if (!displayItems || displayItems.length === 0) {
     container.innerHTML = '<div class="empty">No items</div>';
     const section = container.closest('.section');
     const countEl = section.querySelector('.section-count');
@@ -128,19 +152,28 @@ function renderSection(container, items, type, emoji, title) {
   const grid = document.createElement('div');
   grid.className = 'cards-grid';
 
-  items.forEach(item => {
+  displayItems.forEach(item => {
     grid.appendChild(createCard(item, type));
   });
 
   container.appendChild(grid);
 
+  if (type === 'cron') {
+    grid.addEventListener('click', (e) => {
+      const btn = e.target.closest('.visibility-btn');
+      if (btn) toggleCronHidden(btn.dataset.id);
+    });
+  }
+
   const section = container.closest('.section');
   const countEl = section.querySelector('.section-count');
-  if (countEl) countEl.textContent = items.length;
+  if (countEl) countEl.textContent = displayItems.length;
 }
 
 function updateStats(data) {
-  document.getElementById('stat-cron').textContent = filterByProject(data.cronJobs || []).length;
+  const allCron = filterByProject(data.cronJobs || []);
+  const visibleCron = allCron.filter(j => !j.hidden);
+  document.getElementById('stat-cron').textContent = `${visibleCron.length} / ${allCron.length}`;
   document.getElementById('stat-todo').textContent = filterByProject(data.todo || []).length;
   document.getElementById('stat-progress').textContent = filterByProject(data.inProgress || []).length;
   document.getElementById('stat-done').textContent = filterByProject(data.done || []).length;
@@ -171,6 +204,14 @@ function initFilter() {
   });
 }
 
+function initHiddenToggle() {
+  const checkbox = document.getElementById('show-hidden-checkbox');
+  checkbox.addEventListener('change', () => {
+    showHidden = checkbox.checked;
+    renderAll();
+  });
+}
+
 async function init() {
   tasksData = await loadTasks();
 
@@ -180,6 +221,7 @@ async function init() {
   }
 
   initFilter();
+  initHiddenToggle();
   renderAll();
 
   document.getElementById('last-updated').textContent = new Date().toLocaleString();

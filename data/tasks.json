@@ -5,6 +5,7 @@
       "name": "Health check ping",
       "schedule": "*/5 * * * *",
       "enabled": true,
+      "hidden": true,
       "project": "crab-tasks"
     },
     {
@@ -12,6 +13,7 @@
       "name": "Sync GitHub issues",
       "schedule": "0 */2 * * *",
       "enabled": true,
+      "hidden": false,
       "project": "openclaw"
     },
     {
@@ -19,6 +21,7 @@
       "name": "Cleanup temp files",
       "schedule": "0 3 * * *",
       "enabled": true,
+      "hidden": true,
       "project": "crab-tasks"
     },
     {
@@ -26,6 +29,7 @@
       "name": "Weekly report generation",
       "schedule": "0 9 * * 1",
       "enabled": false,
+      "hidden": false,
       "project": "personal"
     },
     {
@@ -33,6 +37,7 @@
       "name": "Database backup",
       "schedule": "0 0 * * *",
       "enabled": true,
+      "hidden": false,
       "project": "openclaw"
     }
   ],
