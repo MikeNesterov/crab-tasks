@@ -7,6 +7,22 @@
   },
   "accounts": [
     {
+      "id": "cash-reserve",
+      "name": "Наличные (заначка)",
+      "type": "cash",
+      "currency": "USD",
+      "balance": 10000,
+      "note": "На чёрный день, не инвестируем"
+    },
+    {
+      "id": "cash-invest",
+      "name": "Наличные (для инвестиций)",
+      "type": "cash",
+      "currency": "USD",
+      "balance": 63000,
+      "note": "Для DCA инвестирования"
+    },
+    {
       "id": "prior-usd-1",
       "name": "PriorBank USD #1",
       "type": "checking",
@@ -99,12 +115,12 @@
       "type": "stock",
       "ticker": "BYDDY",
       "quantity": 1224,
-      "purchasePrice": 70.00,
+      "purchasePrice": 23.33,
       "currentPrice": 12.08,
       "value": 14786,
       "status": "blocked",
       "broker": "Альфа-Банк BY",
-      "note": "Заблокированы из-за санкций"
+      "note": "После 3:1 сплита (июль 2025). Заблокированы."
     },
     {
       "id": "stock-ozon",
@@ -121,13 +137,19 @@
     }
   ],
   "summary": {
-    "totalAssets": 89638,
-    "totalCash": 59106,
+    "totalAssets": 162638,
+    "totalCash": 132106,
     "totalDeposits": 3145,
     "totalInvestments": 27387,
     "activeInvestments": 5860,
     "blockedInvestments": 21527,
-    "availableAssets": 68111
+    "availableAssets": 141111,
+    "reserveCash": 10000,
+    "investableCash": 63000
   },
-  "notes": "Акции в Альфа-Банк BY заблокированы после санкций 2022. Revolut - активные инвестиции."
+  "investmentStrategy": {
+    "approach": "DCA",
+    "note": "Поэтапное инвестирование $63K, не lump sum"
+  },
+  "notes": "Акции в Альфа-Банк BY заблокированы после санкций 2022. BYDDY: 3:1 сплит июль 2025, цена скорректирована."
 }
