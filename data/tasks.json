@@ -53,6 +53,15 @@
       "enabled": true,
       "hidden": false,
       "project": "personal"
+    },
+    {
+      "id": "cron-prices",
+      "name": "Finance: Daily Price Update",
+      "schedule": "0 8 * * *",
+      "tz": "Europe/Warsaw",
+      "enabled": true,
+      "hidden": false,
+      "project": "crab-tasks"
     }
   ],
   "todo": [
@@ -92,14 +101,6 @@
       "project": "crab-tasks",
       "note": "Рассмотреть: Vercel, Cloudflare Pages, свой VPS, Coolify"
     },
-    {
-      "id": "todo-6",
-      "title": "Автообновление цен акций/ETF раз в сутки",
-      "priority": "medium",
-      "created": "2026-02-09",
-      "project": "crab-tasks",
-      "note": "Cron job агента: Yahoo Finance API или web scraping → обновить finance.json → git push"
-    }
   ],
   "inProgress": [
     {
@@ -162,6 +163,14 @@
     {
       "id": "done-7",
       "title": "PR workflow с branch protection",
+      "priority": "medium",
+      "created": "2026-02-09",
+      "completed": "2026-02-09",
+      "project": "crab-tasks"
+    },
+    {
+      "id": "done-8",
+      "title": "Автообновление цен акций/ETF раз в сутки",
       "priority": "medium",
       "created": "2026-02-09",
       "completed": "2026-02-09",
