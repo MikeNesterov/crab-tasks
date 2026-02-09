@@ -1,123 +1,173 @@
 {
   "cronJobs": [
     {
-      "id": "cron-1",
-      "name": "Health check ping",
-      "schedule": "*/5 * * * *",
-      "enabled": true,
-      "hidden": true,
-      "project": "crab-tasks"
-    },
-    {
-      "id": "cron-2",
-      "name": "Sync GitHub issues",
-      "schedule": "0 */2 * * *",
+      "id": "cron-digest",
+      "name": "AI Daily Digest",
+      "schedule": "0 5 * * *",
+      "tz": "UTC",
       "enabled": true,
       "hidden": false,
       "project": "openclaw"
     },
     {
-      "id": "cron-3",
-      "name": "Cleanup temp files",
-      "schedule": "0 3 * * *",
+      "id": "cron-features",
+      "name": "Daily Feature Ideas",
+      "schedule": "0 9 * * *",
+      "tz": "Europe/Warsaw",
       "enabled": true,
-      "hidden": true,
+      "hidden": false,
       "project": "crab-tasks"
     },
     {
-      "id": "cron-4",
-      "name": "Weekly report generation",
-      "schedule": "0 9 * * 1",
-      "enabled": false,
+      "id": "cron-update",
+      "name": "OpenClaw Update Check",
+      "schedule": "0 10 * * *",
+      "tz": "Europe/Warsaw",
+      "enabled": true,
+      "hidden": false,
+      "project": "openclaw"
+    },
+    {
+      "id": "cron-learning",
+      "name": "AI Dev Learning (Weekly)",
+      "schedule": "30 10 * * 1",
+      "tz": "Europe/Warsaw",
+      "enabled": true,
       "hidden": false,
       "project": "personal"
     },
     {
-      "id": "cron-5",
-      "name": "Database backup",
-      "schedule": "0 0 * * *",
+      "id": "cron-aibooks",
+      "name": "ai-books: Full Project Review",
+      "schedule": "0 23 * * *",
+      "tz": "UTC",
       "enabled": true,
       "hidden": false,
+      "project": "ai-books"
+    },
+    {
+      "id": "cron-backup",
+      "name": "Daily S3 Backup",
+      "schedule": "0 3 * * *",
+      "tz": "UTC",
+      "enabled": true,
+      "hidden": true,
       "project": "openclaw"
+    },
+    {
+      "id": "cron-disk",
+      "name": "Disk Space Monitor",
+      "schedule": "0 */6 * * *",
+      "tz": "UTC",
+      "enabled": true,
+      "hidden": true,
+      "project": "openclaw"
+    },
+    {
+      "id": "cron-finplan",
+      "name": "Финплан: ежемесячный чекин",
+      "schedule": "0 10 1 * *",
+      "tz": "Europe/Warsaw",
+      "enabled": true,
+      "hidden": false,
+      "project": "personal"
     }
   ],
   "todo": [
     {
       "id": "todo-1",
-      "title": "Implement webhook notifications",
-      "priority": "high",
-      "created": "2026-02-07",
+      "title": "Добавить синхронизацию tasks.json с реальными cron jobs",
+      "priority": "medium",
+      "created": "2026-02-09",
       "project": "crab-tasks"
     },
     {
       "id": "todo-2",
-      "title": "Add task filtering by date range",
-      "priority": "medium",
-      "created": "2026-02-06",
+      "title": "Добавить dark/light theme toggle",
+      "priority": "low",
+      "created": "2026-02-09",
       "project": "crab-tasks"
     },
     {
       "id": "todo-3",
-      "title": "Write integration tests for API",
-      "priority": "high",
-      "created": "2026-02-05",
-      "project": "openclaw"
-    },
-    {
-      "id": "todo-4",
-      "title": "Update dependencies to latest versions",
-      "priority": "low",
-      "created": "2026-02-04",
+      "title": "Генерация новых страниц для книги",
+      "priority": "medium",
+      "created": "2026-02-09",
       "project": "ai-books"
     },
     {
-      "id": "todo-5",
-      "title": "Add dark/light theme toggle",
-      "priority": "low",
-      "created": "2026-02-03",
+      "id": "todo-4",
+      "title": "Подготовка к O-1 визе — собрать материалы",
+      "priority": "high",
+      "created": "2026-02-09",
       "project": "personal"
     }
   ],
   "inProgress": [
     {
       "id": "ip-1",
-      "title": "Build task tracker UI",
+      "title": "Изучение AI-assisted development с Claude Code",
       "priority": "high",
-      "created": "2026-02-08",
-      "project": "crab-tasks"
-    },
-    {
-      "id": "ip-2",
-      "title": "Configure GitHub Pages deployment",
-      "priority": "medium",
-      "created": "2026-02-08",
-      "project": "openclaw"
+      "created": "2026-02-09",
+      "project": "personal"
     }
   ],
   "done": [
     {
       "id": "done-1",
-      "title": "Set up project repository",
+      "title": "Human-readable cron expressions",
       "priority": "high",
-      "created": "2026-02-01",
-      "completed": "2026-02-01",
+      "created": "2026-02-09",
+      "completed": "2026-02-09",
       "project": "crab-tasks"
     },
     {
       "id": "done-2",
-      "title": "Write project specification",
+      "title": "Task grouping by project",
       "priority": "high",
-      "created": "2026-02-01",
-      "completed": "2026-02-02",
-      "project": "ai-books"
+      "created": "2026-02-09",
+      "completed": "2026-02-09",
+      "project": "crab-tasks"
     },
     {
       "id": "done-3",
-      "title": "Design data schema for tasks.json",
+      "title": "Hidden cron jobs with toggle",
       "priority": "medium",
-      "created": "2026-02-02",
-      "completed": "2026-02-03",
-      "project": "openclaw"
+      "created": "2026-02-09",
+      "completed": "2026-02-09",
+      "project": "crab-tasks"
+    },
+    {
+      "id": "done-4",
+      "title": "Fullscreen two-column layout",
+      "priority": "high",
+      "created": "2026-02-09",
+      "completed": "2026-02-09",
+      "project": "crab-tasks"
+    },
+    {
+      "id": "done-5",
+      "title": "Project-based task view",
+      "priority": "high",
+      "created": "2026-02-09",
+      "completed": "2026-02-09",
+      "project": "crab-tasks"
+    },
+    {
+      "id": "done-6",
+      "title": "GitHub bot account для code review",
+      "priority": "medium",
+      "created": "2026-02-09",
+      "completed": "2026-02-09",
+      "project": "crab-tasks"
+    },
+    {
+      "id": "done-7",
+      "title": "PR workflow с branch protection",
+      "priority": "medium",
+      "created": "2026-02-09",
+      "completed": "2026-02-09",
+      "project": "crab-tasks"
     }
   ]
 }
