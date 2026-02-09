@@ -3,6 +3,9 @@ const DATA_URL = 'data/tasks.json';
 
 const DAYS_RU = ['воскресеньям', 'понедельникам', 'вторникам', 'средам', 'четвергам', 'пятницам', 'субботам'];
 
+let currentProject = 'all';
+let tasksData = null;
+
 function parseCronToHuman(cronExpr, tz) {
   const parts = cronExpr.trim().split(/\s+/);
   if (parts.length !== 5) return cronExpr;
@@ -68,10 +71,19 @@ async function loadTasks() {
   }
 }
 
+function filterByProject(items) {
+  if (currentProject === 'all') return items;
+  return items.filter(item => item.project === currentProject);
+}
+
 function createCard(task, type) {
   const card = document.createElement('div');
   card.className = `card ${type === 'done' ? 'card-done' : ''}`;
-  
+
+  const projectBadge = task.project
+    ? `<span class="project-badge project-${task.project}">${task.project}</span>`
+    : '';
+
   if (type === 'cron') {
     const humanSchedule = parseCronToHuman(task.schedule, task.tz);
     card.innerHTML = `
@@ -82,6 +94,7 @@ function createCard(task, type) {
           <span class="cron-status-dot"></span>
           ${task.enabled ? 'Enabled' : 'Disabled'}
         </span>
+        ${projectBadge}
       </div>
     `;
   } else {
@@ -90,12 +103,13 @@ function createCard(task, type) {
       <div class="card-title">${task.title}</div>
       <div class="card-meta">
         <span class="priority ${priorityClass}">${task.priority}</span>
+        ${projectBadge}
         <span class="card-date">${task.created}</span>
         ${task.completed ? `<span class="card-completed">✓ ${task.completed}</span>` : ''}
       </div>
     `;
   }
-  
+
   return card;
 }
 
@@ -105,6 +119,9 @@ function renderSection(container, items, type, emoji, title) {
 
   if (!items || items.length === 0) {
     container.innerHTML = '<div class="empty">No items</div>';
+    const section = container.closest('.section');
+    const countEl = section.querySelector('.section-count');
+    if (countEl) countEl.textContent = 0;
     return;
   }
 
@@ -116,36 +133,55 @@ function renderSection(container, items, type, emoji, title) {
   });
 
   container.appendChild(grid);
-  
-  // Update count
+
   const section = container.closest('.section');
   const countEl = section.querySelector('.section-count');
   if (countEl) countEl.textContent = items.length;
 }
 
 function updateStats(data) {
-  document.getElementById('stat-cron').textContent = data.cronJobs?.length || 0;
-  document.getElementById('stat-todo').textContent = data.todo?.length || 0;
-  document.getElementById('stat-progress').textContent = data.inProgress?.length || 0;
-  document.getElementById('stat-done').textContent = data.done?.length || 0;
+  document.getElementById('stat-cron').textContent = filterByProject(data.cronJobs || []).length;
+  document.getElementById('stat-todo').textContent = filterByProject(data.todo || []).length;
+  document.getElementById('stat-progress').textContent = filterByProject(data.inProgress || []).length;
+  document.getElementById('stat-done').textContent = filterByProject(data.done || []).length;
+}
+
+function renderAll() {
+  if (!tasksData) return;
+
+  updateStats(tasksData);
+
+  renderSection(document.getElementById('cron-list'), filterByProject(tasksData.cronJobs || []), 'cron', '📋', 'Cron Jobs');
+  renderSection(document.getElementById('todo-list'), filterByProject(tasksData.todo || []), 'task', '✅', 'TODO');
+  renderSection(document.getElementById('progress-list'), filterByProject(tasksData.inProgress || []), 'task', '🔄', 'In Progress');
+  renderSection(document.getElementById('done-list'), filterByProject(tasksData.done || []), 'done', '✔️', 'Done');
+}
+
+function initFilter() {
+  const filterContainer = document.getElementById('project-filter');
+  filterContainer.addEventListener('click', (e) => {
+    const btn = e.target.closest('.filter-btn');
+    if (!btn) return;
+
+    filterContainer.querySelector('.filter-btn.active').classList.remove('active');
+    btn.classList.add('active');
+
+    currentProject = btn.dataset.project;
+    renderAll();
+  });
 }
 
 async function init() {
-  const data = await loadTasks();
-  
-  if (!data) {
+  tasksData = await loadTasks();
+
+  if (!tasksData) {
     document.querySelector('.main').innerHTML = '<div class="error">Failed to load tasks</div>';
     return;
   }
-  
-  updateStats(data);
-  
-  renderSection(document.getElementById('cron-list'), data.cronJobs, 'cron', '📋', 'Cron Jobs');
-  renderSection(document.getElementById('todo-list'), data.todo, 'task', '✅', 'TODO');
-  renderSection(document.getElementById('progress-list'), data.inProgress, 'task', '🔄', 'In Progress');
-  renderSection(document.getElementById('done-list'), data.done, 'done', '✔️', 'Done');
-  
-  // Update timestamp
+
+  initFilter();
+  renderAll();
+
   document.getElementById('last-updated').textContent = new Date().toLocaleString();
 }
 
