@@ -91,6 +91,14 @@
       "created": "2026-02-09",
       "project": "crab-tasks",
       "note": "Рассмотреть: Vercel, Cloudflare Pages, свой VPS, Coolify"
+    },
+    {
+      "id": "todo-6",
+      "title": "Автообновление цен акций/ETF раз в сутки",
+      "priority": "medium",
+      "created": "2026-02-09",
+      "project": "crab-tasks",
+      "note": "Cron job агента: Yahoo Finance API или web scraping → обновить finance.json → git push"
     }
   ],
   "inProgress": [
