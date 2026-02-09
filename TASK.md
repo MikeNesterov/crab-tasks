@@ -1,31 +1,33 @@
-# Task: Fullscreen Layout
+# Task: Project View (v2)
 
-Optimize the UI for large monitors (2560x1440). Use full screen width with column layout.
+Current state: Two-column layout (tasks left, cron right), hidden cron toggle exists.
+
+Replace the status-based task sections (TODO/In Progress/Done) with a project-based view.
 
 ## Requirements
 
-1. **Two-column layout**:
-   - LEFT: Tasks (TODO, In Progress, Done or Project View)
-   - RIGHT: Cron Jobs
-2. **Full width**: Remove max-width constraints, use 100% of viewport
-3. **Responsive**: On smaller screens (<1200px), stack vertically as before
-4. **Header**: Keep header at top, spanning full width
-5. **Stats bar**: Keep at top, below header
-6. **Sections**: Use CSS Grid or Flexbox for the two-column layout
-7. **Cards**: Can be slightly wider on large screens
-
-## Target resolution
-- Optimized for: 2560x1440
-- Works on: 1920x1080 and larger
-- Falls back to: vertical stack on <1200px
+1. **Replace left column content**: Instead of 3 sections (TODO/In Progress/Done), show one section per project
+2. **Inside each project section**: Show all tasks (todo + in progress + done) sorted by priority (high → medium → low)
+3. **Visual distinction**: 
+   - In progress tasks: highlighted background, status icon
+   - Done tasks: muted/strikethrough
+   - Priority badge visible on each task
+4. **Keep existing**: 
+   - Two-column layout (don't change)
+   - Cron section on right (don't change)
+   - Project filter buttons (use them to filter which project sections show)
+   - Stats bar
+5. **Per-project stats**: Show counts in each project header
 
 ## Files to modify
-- `css/style.css` - major layout changes, media queries
-- `index.html` - wrap sections in layout containers
+- `js/app.js` - new renderProjectView() function, modify init
+- `css/style.css` - project section styles, task row styles
+- `index.html` - replace task sections with projects container (keep columns-layout)
 
 ## When done
 ```
+git checkout -b feat/project-view-v2
 git add .
-git commit -m "feat: fullscreen two-column layout"
-git push -u origin feat/fullscreen-layout
+git commit -m "feat: project-based task view"
+git push -u origin feat/project-view-v2
 ```
