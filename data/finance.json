@@ -1,0 +1,22 @@
+{
+  "lastUpdated": "2026-02-09",
+  "currency": "USD",
+  "accounts": [
+    {
+      "id": "cash-usd",
+      "name": "Наличные USD",
+      "type": "cash",
+      "currency": "USD",
+      "balance": 100000,
+      "note": "Готовы к инвестированию"
+    }
+  ],
+  "investments": [],
+  "deposits": [],
+  "summary": {
+    "totalAssets": 100000,
+    "totalInvestments": 0,
+    "totalCash": 100000,
+    "totalDeposits": 0
+  }
+}
