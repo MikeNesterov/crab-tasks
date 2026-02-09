@@ -91,14 +91,6 @@
       "project": "crab-tasks"
     },
     {
-      "id": "todo-2",
-      "title": "UI тестирование: проверка обеих страниц (tasks + finance)",
-      "priority": "high",
-      "created": "2026-02-09",
-      "project": "crab-tasks",
-      "note": "Открыть браузер, сделать screenshot, проверить что данные отображаются корректно"
-    },
-    {
       "id": "todo-4",
       "title": "Подготовка к O-1 визе — собрать материалы",
       "priority": "high",
@@ -112,7 +104,7 @@
       "created": "2026-02-09",
       "project": "crab-tasks",
       "note": "Рассмотреть: Vercel, Cloudflare Pages, свой VPS, Coolify"
-    },
+    }
   ],
   "inProgress": [
     {
@@ -121,6 +113,14 @@
       "priority": "high",
       "created": "2026-02-09",
       "project": "personal"
+    },
+    {
+      "id": "ip-2",
+      "title": "UI тестирование: проверка обеих страниц (tasks + finance)",
+      "priority": "high",
+      "created": "2026-02-09",
+      "project": "crab-tasks",
+      "note": "Открыть браузер, сделать screenshot, проверить что данные отображаются корректно"
     }
   ],
   "done": [
