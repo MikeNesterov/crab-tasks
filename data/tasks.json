@@ -12,7 +12,7 @@
     {
       "id": "cron-features",
       "name": "Daily Feature Ideas",
-      "schedule": "0 9 * * *",
+      "schedule": "30 5 * * *",
       "tz": "Europe/Warsaw",
       "enabled": true,
       "hidden": false,
@@ -21,7 +21,7 @@
     {
       "id": "cron-update",
       "name": "OpenClaw Update Check",
-      "schedule": "0 10 * * *",
+      "schedule": "40 5 * * *",
       "tz": "Europe/Warsaw",
       "enabled": true,
       "hidden": false,
@@ -29,8 +29,8 @@
     },
     {
       "id": "cron-learning",
-      "name": "AI Dev Learning (Weekly)",
-      "schedule": "30 10 * * 1",
+      "name": "AI Dev Learning (Daily)",
+      "schedule": "30 5 * * *",
       "tz": "Europe/Warsaw",
       "enabled": true,
       "hidden": false,
@@ -57,7 +57,7 @@
     {
       "id": "cron-prices",
       "name": "Finance: Daily Price Update",
-      "schedule": "0 8 * * *",
+      "schedule": "0 6 * * *",
       "tz": "Europe/Warsaw",
       "enabled": true,
       "hidden": false,
