@@ -25,6 +25,10 @@ function parseCronToHuman(cronExpr, tz) {
   if (hour.startsWith('*/') && dayOfMonth === '*' && month === '*' && dayOfWeek === '*') {
     const n = parseInt(hour.slice(2), 10);
     if (n === 1) return `Каждый час${tzSuffix}`;
+    const m = parseInt(minute, 10);
+    if (/^\d+$/.test(minute) && m !== 0) {
+      return `Каждые ${n} ч. в :${String(m).padStart(2, '0')}${tzSuffix}`;
+    }
     return `Каждые ${n} ч.${tzSuffix}`;
   }
 
@@ -35,6 +39,7 @@ function parseCronToHuman(cronExpr, tz) {
     // Specific day of week: 0 10 * * 1
     if (dayOfMonth === '*' && month === '*' && /^\d+$/.test(dayOfWeek)) {
       const dow = parseInt(dayOfWeek, 10);
+      if (dow < 0 || dow > 6) return cronExpr;
       return `По ${DAYS_RU[dow]} в ${time}${tzSuffix}`;
     }
 
@@ -72,7 +77,7 @@ function createCard(task, type) {
     card.innerHTML = `
       <div class="card-title">${task.name}</div>
       <div class="card-meta">
-        <span class="cron-schedule" title="${task.schedule}">${humanSchedule}</span>
+        <span class="cron-schedule" title="${task.schedule.replace(/"/g, '&quot;')}">${humanSchedule}</span>
         <span class="cron-status ${task.enabled ? 'cron-enabled' : 'cron-disabled'}">
           <span class="cron-status-dot"></span>
           ${task.enabled ? 'Enabled' : 'Disabled'}
