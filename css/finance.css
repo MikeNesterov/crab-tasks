@@ -1,0 +1,209 @@
+/* Finance Dashboard Styles */
+
+/* Navigation */
+.header-nav {
+  display: flex;
+  gap: 1rem;
+  margin-left: 2rem;
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.nav-link:hover {
+  background: var(--bg-card);
+  color: var(--text-primary);
+}
+
+.nav-link.active {
+  background: var(--accent-blue);
+  color: white;
+}
+
+/* Finance Layout */
+.finance-layout {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+@media (max-width: 1200px) {
+  .finance-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Finance Sections */
+.finance-section {
+  min-height: 200px;
+}
+
+.finance-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Account/Investment Cards */
+.finance-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  background: var(--bg-card);
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  transition: all 0.2s;
+}
+
+.finance-item:hover {
+  border-color: var(--accent-blue);
+  transform: translateY(-1px);
+}
+
+.finance-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.finance-item-name {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.finance-item-meta {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.finance-item-type {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.type-cash { background: var(--accent-green); color: white; }
+.type-checking { background: var(--accent-blue); color: white; }
+.type-savings { background: var(--accent-purple); color: white; }
+.type-investment { background: var(--accent-orange); color: white; }
+.type-deposit { background: #6366f1; color: white; }
+.type-stock { background: #ec4899; color: white; }
+.type-etf { background: #14b8a6; color: white; }
+.type-crypto { background: #f59e0b; color: white; }
+
+.finance-item-balance {
+  text-align: right;
+}
+
+.finance-item-amount {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.finance-item-currency {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+/* Net Worth Highlight */
+.stat-highlight {
+  background: linear-gradient(135deg, var(--accent-green), #059669) !important;
+}
+
+.stat-highlight .stat-value,
+.stat-highlight .stat-label {
+  color: white !important;
+}
+
+/* Goals Section */
+.finance-goals {
+  padding: 0.5rem 0;
+}
+
+.goal-card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+}
+
+.goal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.goal-title {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.goal-target {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent-green);
+}
+
+.goal-progress {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.goal-bar {
+  flex: 1;
+  height: 12px;
+  background: var(--bg-secondary);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.goal-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-green), #34d399);
+  border-radius: 6px;
+  transition: width 0.5s ease;
+}
+
+.goal-percent {
+  font-weight: 700;
+  color: var(--accent-green);
+  min-width: 50px;
+  text-align: right;
+}
+
+.goal-details {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.goal-details strong {
+  color: var(--text-primary);
+}
+
+/* Empty State */
+.finance-empty {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-secondary);
+}
+
+.finance-empty-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}

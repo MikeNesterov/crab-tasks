@@ -17,6 +17,11 @@
   --project-ai-books: #bc8cff;
   --project-openclaw: #f0883e;
   --project-personal: #3fb950;
+  --accent-blue: #58a6ff;
+  --accent-green: #3fb950;
+  --accent-purple: #bc8cff;
+  --accent-orange: #f0883e;
+  --border-color: #30363d;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -42,6 +47,31 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.header-nav {
+  display: flex;
+  gap: 1rem;
+  margin-left: 2rem;
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.2s;
+  font-size: 0.9rem;
+}
+
+.nav-link:hover {
+  background: var(--bg-card);
+  color: var(--text-primary);
+}
+
+.nav-link.active {
+  background: var(--accent);
+  color: white;
 }
 
 .header h1 {

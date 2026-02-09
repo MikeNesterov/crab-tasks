@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🦀 Crab Finance</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/finance.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <h1><span class="crab-icon">🦀</span> Crab Finance</h1>
+      <nav class="header-nav">
+        <a href="index.html" class="nav-link">📋 Tasks</a>
+        <a href="finance.html" class="nav-link active">💰 Finance</a>
+      </nav>
+      <div class="header-meta">
+        <span class="status-dot"></span>
+        <span>Updated: <span id="last-updated">-</span></span>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Net Worth Summary -->
+    <div class="stats-bar">
+      <div class="stat-card stat-highlight">
+        <div class="stat-icon">💰</div>
+        <div class="stat-info">
+          <div class="stat-value" id="stat-networth">-</div>
+          <div class="stat-label">Net Worth</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">💵</div>
+        <div class="stat-info">
+          <div class="stat-value" id="stat-cash">-</div>
+          <div class="stat-label">Cash</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">📈</div>
+        <div class="stat-info">
+          <div class="stat-value" id="stat-investments">-</div>
+          <div class="stat-label">Investments</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🏦</div>
+        <div class="stat-info">
+          <div class="stat-value" id="stat-deposits">-</div>
+          <div class="stat-label">Deposits</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="finance-layout">
+      <!-- Accounts Section -->
+      <section class="section finance-section">
+        <div class="section-header">
+          <span class="section-emoji">💵</span>
+          <span class="section-title">Accounts & Cash</span>
+          <span class="section-count" id="accounts-count">-</span>
+        </div>
+        <div id="accounts-list" class="finance-list">
+          <div class="loading-spinner"></div>
+          Loading...
+        </div>
+      </section>
+
+      <!-- Investments Section -->
+      <section class="section finance-section">
+        <div class="section-header">
+          <span class="section-emoji">📈</span>
+          <span class="section-title">Investments</span>
+          <span class="section-count" id="investments-count">-</span>
+        </div>
+        <div id="investments-list" class="finance-list">
+          <div class="loading-spinner"></div>
+          Loading...
+        </div>
+      </section>
+
+      <!-- Deposits Section -->
+      <section class="section finance-section">
+        <div class="section-header">
+          <span class="section-emoji">🏦</span>
+          <span class="section-title">Deposits</span>
+          <span class="section-count" id="deposits-count">-</span>
+        </div>
+        <div id="deposits-list" class="finance-list">
+          <div class="loading-spinner"></div>
+          Loading...
+        </div>
+      </section>
+
+      <!-- Goals Section -->
+      <section class="section finance-section">
+        <div class="section-header">
+          <span class="section-emoji">🎯</span>
+          <span class="section-title">FIRE Progress</span>
+        </div>
+        <div id="goals-section" class="finance-goals">
+          <div class="goal-card">
+            <div class="goal-header">
+              <span class="goal-title">Portfolio Target</span>
+              <span class="goal-target">$1,250,000</span>
+            </div>
+            <div class="goal-progress">
+              <div class="goal-bar">
+                <div class="goal-fill" id="goal-fill" style="width: 0%"></div>
+              </div>
+              <span class="goal-percent" id="goal-percent">0%</span>
+            </div>
+            <div class="goal-details">
+              <span>Current: <strong id="goal-current">$0</strong></span>
+              <span>Remaining: <strong id="goal-remaining">$1,250,000</strong></span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    🦀 Crab Finance • Powered by OpenClaw
+  </footer>
+
+  <script src="js/finance.js"></script>
+</body>
+</html>
