@@ -37,27 +37,9 @@
       "project": "personal"
     },
     {
-      "id": "cron-aibooks",
-      "name": "ai-books: Full Project Review",
-      "schedule": "0 23 * * *",
-      "tz": "UTC",
-      "enabled": true,
-      "hidden": false,
-      "project": "ai-books"
-    },
-    {
       "id": "cron-backup",
       "name": "Daily S3 Backup",
       "schedule": "0 3 * * *",
-      "tz": "UTC",
-      "enabled": true,
-      "hidden": true,
-      "project": "openclaw"
-    },
-    {
-      "id": "cron-disk",
-      "name": "Disk Space Monitor",
-      "schedule": "0 */6 * * *",
       "tz": "UTC",
       "enabled": true,
       "hidden": true,
