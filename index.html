@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🦀 Crab Tasks</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <h1><span class="crab-icon">🦀</span> Crab Tasks</h1>
+      <div class="header-meta">
+        <span class="status-dot"></span>
+        <span>Last updated: <span id="last-updated">-</span></span>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="stats-bar">
+      <div class="stat-card">
+        <div class="stat-icon">📋</div>
+        <div class="stat-info">
+          <div class="stat-value" id="stat-cron">-</div>
+          <div class="stat-label">Cron Jobs</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">✅</div>
+        <div class="stat-info">
+          <div class="stat-value" id="stat-todo">-</div>
+          <div class="stat-label">TODO</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🔄</div>
+        <div class="stat-info">
+          <div class="stat-value" id="stat-progress">-</div>
+          <div class="stat-label">In Progress</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">✔️</div>
+        <div class="stat-info">
+          <div class="stat-value" id="stat-done">-</div>
+          <div class="stat-label">Done</div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="section-header">
+        <span class="section-emoji">📋</span>
+        <span class="section-title">Cron Jobs</span>
+        <span class="section-count">-</span>
+      </div>
+      <div id="cron-list" class="loading">
+        <div class="loading-spinner"></div>
+        Loading...
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <span class="section-emoji">✅</span>
+        <span class="section-title">TODO</span>
+        <span class="section-count">-</span>
+      </div>
+      <div id="todo-list" class="loading">
+        <div class="loading-spinner"></div>
+        Loading...
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <span class="section-emoji">🔄</span>
+        <span class="section-title">In Progress</span>
+        <span class="section-count">-</span>
+      </div>
+      <div id="progress-list" class="loading">
+        <div class="loading-spinner"></div>
+        Loading...
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <span class="section-emoji">✔️</span>
+        <span class="section-title">Done</span>
+        <span class="section-count">-</span>
+      </div>
+      <div id="done-list" class="loading">
+        <div class="loading-spinner"></div>
+        Loading...
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    🦀 Crab Tasks • Powered by OpenClaw
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

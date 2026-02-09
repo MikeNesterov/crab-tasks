@@ -1,0 +1,103 @@
+{
+  "cronJobs": [
+    {
+      "id": "cron-1",
+      "name": "Health check ping",
+      "schedule": "*/5 * * * *",
+      "enabled": true
+    },
+    {
+      "id": "cron-2",
+      "name": "Sync GitHub issues",
+      "schedule": "0 */2 * * *",
+      "enabled": true
+    },
+    {
+      "id": "cron-3",
+      "name": "Cleanup temp files",
+      "schedule": "0 3 * * *",
+      "enabled": true
+    },
+    {
+      "id": "cron-4",
+      "name": "Weekly report generation",
+      "schedule": "0 9 * * 1",
+      "enabled": false
+    },
+    {
+      "id": "cron-5",
+      "name": "Database backup",
+      "schedule": "0 0 * * *",
+      "enabled": true
+    }
+  ],
+  "todo": [
+    {
+      "id": "todo-1",
+      "title": "Implement webhook notifications",
+      "priority": "high",
+      "created": "2026-02-07"
+    },
+    {
+      "id": "todo-2",
+      "title": "Add task filtering by date range",
+      "priority": "medium",
+      "created": "2026-02-06"
+    },
+    {
+      "id": "todo-3",
+      "title": "Write integration tests for API",
+      "priority": "high",
+      "created": "2026-02-05"
+    },
+    {
+      "id": "todo-4",
+      "title": "Update dependencies to latest versions",
+      "priority": "low",
+      "created": "2026-02-04"
+    },
+    {
+      "id": "todo-5",
+      "title": "Add dark/light theme toggle",
+      "priority": "low",
+      "created": "2026-02-03"
+    }
+  ],
+  "inProgress": [
+    {
+      "id": "ip-1",
+      "title": "Build task tracker UI",
+      "priority": "high",
+      "created": "2026-02-08"
+    },
+    {
+      "id": "ip-2",
+      "title": "Configure GitHub Pages deployment",
+      "priority": "medium",
+      "created": "2026-02-08"
+    }
+  ],
+  "done": [
+    {
+      "id": "done-1",
+      "title": "Set up project repository",
+      "priority": "high",
+      "created": "2026-02-01",
+      "completed": "2026-02-01"
+    },
+    {
+      "id": "done-2",
+      "title": "Write project specification",
+      "priority": "high",
+      "created": "2026-02-01",
+      "completed": "2026-02-02"
+    },
+    {
+      "id": "done-3",
+      "title": "Design data schema for tasks.json",
+      "priority": "medium",
+      "created": "2026-02-02",
+      "completed": "2026-02-03"
+    }
+  ]
+}
