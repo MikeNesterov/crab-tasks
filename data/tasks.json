@@ -4,31 +4,36 @@
       "id": "cron-1",
       "name": "Health check ping",
       "schedule": "*/5 * * * *",
-      "enabled": true
+      "enabled": true,
+      "project": "crab-tasks"
     },
     {
       "id": "cron-2",
       "name": "Sync GitHub issues",
       "schedule": "0 */2 * * *",
-      "enabled": true
+      "enabled": true,
+      "project": "openclaw"
     },
     {
       "id": "cron-3",
       "name": "Cleanup temp files",
       "schedule": "0 3 * * *",
-      "enabled": true
+      "enabled": true,
+      "project": "crab-tasks"
     },
     {
       "id": "cron-4",
       "name": "Weekly report generation",
       "schedule": "0 9 * * 1",
-      "enabled": false
+      "enabled": false,
+      "project": "personal"
     },
     {
       "id": "cron-5",
       "name": "Database backup",
       "schedule": "0 0 * * *",
-      "enabled": true
+      "enabled": true,
+      "project": "openclaw"
     }
   ],
   "todo": [
@@ -36,31 +41,36 @@
       "id": "todo-1",
       "title": "Implement webhook notifications",
       "priority": "high",
-      "created": "2026-02-07"
+      "created": "2026-02-07",
+      "project": "crab-tasks"
     },
     {
       "id": "todo-2",
       "title": "Add task filtering by date range",
       "priority": "medium",
-      "created": "2026-02-06"
+      "created": "2026-02-06",
+      "project": "crab-tasks"
     },
     {
       "id": "todo-3",
       "title": "Write integration tests for API",
       "priority": "high",
-      "created": "2026-02-05"
+      "created": "2026-02-05",
+      "project": "openclaw"
     },
     {
       "id": "todo-4",
       "title": "Update dependencies to latest versions",
       "priority": "low",
-      "created": "2026-02-04"
+      "created": "2026-02-04",
+      "project": "ai-books"
     },
     {
       "id": "todo-5",
       "title": "Add dark/light theme toggle",
       "priority": "low",
-      "created": "2026-02-03"
+      "created": "2026-02-03",
+      "project": "personal"
     }
   ],
   "inProgress": [
@@ -68,13 +78,15 @@
       "id": "ip-1",
       "title": "Build task tracker UI",
       "priority": "high",
-      "created": "2026-02-08"
+      "created": "2026-02-08",
+      "project": "crab-tasks"
     },
     {
       "id": "ip-2",
       "title": "Configure GitHub Pages deployment",
       "priority": "medium",
-      "created": "2026-02-08"
+      "created": "2026-02-08",
+      "project": "openclaw"
     }
   ],
   "done": [
@@ -83,21 +95,24 @@
       "title": "Set up project repository",
       "priority": "high",
       "created": "2026-02-01",
-      "completed": "2026-02-01"
+      "completed": "2026-02-01",
+      "project": "crab-tasks"
     },
     {
       "id": "done-2",
       "title": "Write project specification",
       "priority": "high",
       "created": "2026-02-01",
-      "completed": "2026-02-02"
+      "completed": "2026-02-02",
+      "project": "ai-books"
     },
     {
       "id": "done-3",
       "title": "Design data schema for tasks.json",
       "priority": "medium",
       "created": "2026-02-02",
-      "completed": "2026-02-03"
+      "completed": "2026-02-03",
+      "project": "openclaw"
     }
   ]
 }

@@ -13,6 +13,10 @@
   --priority-low: #3fb950;
   --enabled: #3fb950;
   --disabled: #6e7681;
+  --project-crab-tasks: #58a6ff;
+  --project-ai-books: #bc8cff;
+  --project-openclaw: #f0883e;
+  --project-personal: #3fb950;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -214,6 +218,86 @@ body {
 @keyframes spin { to { transform: rotate(360deg); } }
 
 .empty { text-align: center; padding: 2rem; color: var(--text-muted); }
+
+/* Project Filter */
+.project-filter {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover {
+  border-color: var(--text-muted);
+  color: var(--text-primary);
+}
+
+.filter-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.filter-btn[data-project="crab-tasks"].active {
+  background: var(--project-crab-tasks);
+  border-color: var(--project-crab-tasks);
+}
+
+.filter-btn[data-project="ai-books"].active {
+  background: var(--project-ai-books);
+  border-color: var(--project-ai-books);
+}
+
+.filter-btn[data-project="openclaw"].active {
+  background: var(--project-openclaw);
+  border-color: var(--project-openclaw);
+}
+
+.filter-btn[data-project="personal"].active {
+  background: var(--project-personal);
+  border-color: var(--project-personal);
+}
+
+/* Project Badge */
+.project-badge {
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  text-transform: lowercase;
+}
+
+.project-crab-tasks {
+  color: var(--project-crab-tasks);
+  background: rgba(88, 166, 255, 0.12);
+}
+
+.project-ai-books {
+  color: var(--project-ai-books);
+  background: rgba(188, 140, 255, 0.12);
+}
+
+.project-openclaw {
+  color: var(--project-openclaw);
+  background: rgba(240, 136, 62, 0.12);
+}
+
+.project-personal {
+  color: var(--project-personal);
+  background: rgba(63, 185, 80, 0.12);
+}
 
 .footer {
   text-align: center;
