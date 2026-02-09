@@ -113,14 +113,6 @@
       "priority": "high",
       "created": "2026-02-09",
       "project": "personal"
-    },
-    {
-      "id": "ip-2",
-      "title": "UI тестирование: проверка обеих страниц (tasks + finance)",
-      "priority": "high",
-      "created": "2026-02-09",
-      "project": "crab-tasks",
-      "note": "Открыть браузер, сделать screenshot, проверить что данные отображаются корректно"
     }
   ],
   "done": [
@@ -184,6 +176,14 @@
       "id": "done-8",
       "title": "Автообновление цен акций/ETF раз в сутки",
       "priority": "medium",
+      "created": "2026-02-09",
+      "completed": "2026-02-09",
+      "project": "crab-tasks"
+    },
+    {
+      "id": "done-9",
+      "title": "UI тестирование: проверка обеих страниц (tasks + finance)",
+      "priority": "high",
       "created": "2026-02-09",
       "completed": "2026-02-09",
       "project": "crab-tasks"
