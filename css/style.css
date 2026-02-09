@@ -169,12 +169,12 @@ body {
 .card-date { font-size: 0.75rem; color: var(--text-muted); }
 
 .cron-schedule {
-  font-family: 'SF Mono', 'Cascadia Code', monospace;
   font-size: 0.8rem;
   color: var(--accent);
   background: rgba(88, 166, 255, 0.1);
   padding: 0.2rem 0.5rem;
   border-radius: 4px;
+  cursor: default;
 }
 
 .cron-status {
