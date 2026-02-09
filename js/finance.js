@@ -26,23 +26,40 @@ function formatMoney(amount, currency = 'USD') {
 
 function createFinanceItem(item) {
   const div = document.createElement('div');
-  div.className = 'finance-item';
+  const isBlocked = item.status === 'blocked';
+  div.className = `finance-item ${isBlocked ? 'finance-item-blocked' : ''}`;
   
   const typeClass = `type-${item.type}`;
-  const balance = item.balance || item.value || 0;
+  const balance = item.balanceUSD || item.balance || item.value || 0;
   const currency = item.currency || 'USD';
+  const showOriginal = item.balanceUSD && item.currency !== 'USD';
+  
+  // For stocks, show ticker and P&L
+  let extraInfo = '';
+  if (item.ticker) {
+    const pnl = item.currentPrice && item.purchasePrice 
+      ? ((item.currentPrice - item.purchasePrice) / item.purchasePrice * 100).toFixed(0)
+      : null;
+    const pnlClass = pnl > 0 ? 'pnl-positive' : 'pnl-negative';
+    extraInfo = `
+      <span class="stock-qty">${item.quantity} шт @ $${item.currentPrice}</span>
+      ${pnl ? `<span class="stock-pnl ${pnlClass}">${pnl > 0 ? '+' : ''}${pnl}%</span>` : ''}
+    `;
+  }
   
   div.innerHTML = `
     <div class="finance-item-info">
       <div class="finance-item-name">${item.name}</div>
       <div class="finance-item-meta">
         <span class="finance-item-type ${typeClass}">${item.type}</span>
-        ${item.note ? `<span style="margin-left: 0.5rem">${item.note}</span>` : ''}
+        ${isBlocked ? '<span class="status-blocked">🔒 blocked</span>' : ''}
+        ${item.bank ? `<span class="item-bank">${item.bank}</span>` : ''}
+        ${extraInfo}
       </div>
     </div>
     <div class="finance-item-balance">
-      <div class="finance-item-amount">${formatMoney(balance, currency)}</div>
-      ${currency !== 'USD' ? `<div class="finance-item-currency">${currency}</div>` : ''}
+      <div class="finance-item-amount">${formatMoney(balance)}</div>
+      ${showOriginal ? `<div class="finance-item-currency">${item.balance.toLocaleString()} ${currency}</div>` : ''}
     </div>
   `;
   

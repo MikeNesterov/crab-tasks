@@ -1,22 +1,114 @@
 {
   "lastUpdated": "2026-02-09",
-  "currency": "USD",
+  "baseCurrency": "USD",
+  "fxRates": {
+    "BYN_USD": 0.31
+  },
   "accounts": [
     {
-      "id": "cash-usd",
-      "name": "Наличные USD",
-      "type": "cash",
+      "id": "prior-usd-1",
+      "name": "PriorBank USD #1",
+      "type": "checking",
       "currency": "USD",
-      "balance": 100000,
-      "note": "Готовы к инвестированию"
+      "balance": 20445,
+      "bank": "PriorBank",
+      "country": "BY"
+    },
+    {
+      "id": "prior-usd-2",
+      "name": "PriorBank USD #2",
+      "type": "checking",
+      "currency": "USD",
+      "balance": 20331,
+      "bank": "PriorBank",
+      "country": "BY"
+    },
+    {
+      "id": "prior-byn",
+      "name": "PriorBank BYN",
+      "type": "checking",
+      "currency": "BYN",
+      "balance": 59128,
+      "balanceUSD": 18330,
+      "bank": "PriorBank",
+      "country": "BY"
     }
   ],
-  "investments": [],
-  "deposits": [],
+  "deposits": [
+    {
+      "id": "prior-deposit",
+      "name": "PriorBank Депозит 4%",
+      "type": "deposit",
+      "currency": "BYN",
+      "balance": 10145,
+      "balanceUSD": 3145,
+      "rate": 4.0,
+      "maturityDate": "2026-03-06",
+      "bank": "PriorBank",
+      "country": "BY"
+    }
+  ],
+  "investments": [
+    {
+      "id": "stock-pltr",
+      "name": "Palantir (PLTR)",
+      "type": "stock",
+      "ticker": "PLTR",
+      "quantity": 35,
+      "purchasePrice": 13.91,
+      "currentPrice": 135.90,
+      "value": 4757,
+      "status": "blocked",
+      "broker": "Альфа-Банк BY",
+      "note": "Заблокированы из-за санкций"
+    },
+    {
+      "id": "stock-meta",
+      "name": "Meta Platforms (META)",
+      "type": "stock",
+      "ticker": "META",
+      "quantity": 3,
+      "purchasePrice": 240.00,
+      "currentPrice": 661.46,
+      "value": 1984,
+      "status": "blocked",
+      "broker": "Альфа-Банк BY",
+      "note": "Заблокированы из-за санкций"
+    },
+    {
+      "id": "stock-byddy",
+      "name": "BYD Company (BYDDY)",
+      "type": "stock",
+      "ticker": "BYDDY",
+      "quantity": 1224,
+      "purchasePrice": 70.00,
+      "currentPrice": 12.08,
+      "value": 14786,
+      "status": "blocked",
+      "broker": "Альфа-Банк BY",
+      "note": "Заблокированы из-за санкций"
+    },
+    {
+      "id": "stock-ozon",
+      "name": "Ozon Holdings (OZON)",
+      "type": "stock",
+      "ticker": "OZON",
+      "quantity": 25,
+      "purchasePrice": 22.30,
+      "currentPrice": 0,
+      "value": 0,
+      "status": "blocked",
+      "broker": "Альфа-Банк BY",
+      "note": "Делистинг, полная блокировка"
+    }
+  ],
   "summary": {
-    "totalAssets": 100000,
-    "totalInvestments": 0,
-    "totalCash": 100000,
-    "totalDeposits": 0
-  }
+    "totalAssets": 83778,
+    "totalCash": 59106,
+    "totalDeposits": 3145,
+    "totalInvestments": 21527,
+    "blockedInvestments": 21527,
+    "availableAssets": 62251
+  },
+  "notes": "Акции заблокированы после санкций 2022. Надежда на разблокировку в будущем."
 }

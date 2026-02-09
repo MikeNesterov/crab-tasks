@@ -196,6 +196,49 @@
   color: var(--text-primary);
 }
 
+/* Blocked Items */
+.finance-item-blocked {
+  opacity: 0.7;
+  border-style: dashed;
+}
+
+.status-blocked {
+  color: #f59e0b;
+  font-size: 0.75rem;
+  margin-left: 0.5rem;
+}
+
+.item-bank {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  margin-left: 0.5rem;
+}
+
+/* Stock Info */
+.stock-qty {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  margin-left: 0.5rem;
+}
+
+.stock-pnl {
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-left: 0.5rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+}
+
+.pnl-positive {
+  background: rgba(52, 211, 153, 0.2);
+  color: #34d399;
+}
+
+.pnl-negative {
+  background: rgba(248, 81, 73, 0.2);
+  color: #f85149;
+}
+
 /* Empty State */
 .finance-empty {
   text-align: center;
