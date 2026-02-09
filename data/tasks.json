@@ -92,17 +92,11 @@
     },
     {
       "id": "todo-2",
-      "title": "Добавить dark/light theme toggle",
-      "priority": "low",
+      "title": "UI тестирование: проверка обеих страниц (tasks + finance)",
+      "priority": "high",
       "created": "2026-02-09",
-      "project": "crab-tasks"
-    },
-    {
-      "id": "todo-3",
-      "title": "Генерация новых страниц для книги",
-      "priority": "medium",
-      "created": "2026-02-09",
-      "project": "ai-books"
+      "project": "crab-tasks",
+      "note": "Открыть браузер, сделать screenshot, проверить что данные отображаются корректно"
     },
     {
       "id": "todo-4",
