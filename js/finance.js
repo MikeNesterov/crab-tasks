@@ -6,7 +6,9 @@ let financeData = null;
 
 async function loadFinance() {
   try {
-    const res = await fetch(DATA_URL);
+    // Add cache-busting to avoid stale data
+    const cacheBuster = `?t=${Date.now()}`;
+    const res = await fetch(DATA_URL + cacheBuster);
     if (!res.ok) throw new Error('Failed to load finance data');
     return await res.json();
   } catch (err) {
@@ -89,7 +91,7 @@ function renderList(containerId, items, emptyIcon, emptyText) {
 
 function updateStats(data) {
   const summary = data.summary || {};
-  const total = summary.totalAssets || 0;
+  const total = summary.totalLiquidAssets || summary.totalAssets || 0;
   
   document.getElementById('stat-networth').textContent = formatMoney(total);
   document.getElementById('stat-cash').textContent = formatMoney(summary.totalCash || 0);
@@ -98,7 +100,7 @@ function updateStats(data) {
 }
 
 function updateGoals(data) {
-  const total = data.summary?.totalAssets || 0;
+  const total = data.summary?.totalLiquidAssets || data.summary?.totalAssets || 0;
   const percent = Math.min(100, (total / FIRE_TARGET) * 100);
   const remaining = Math.max(0, FIRE_TARGET - total);
   
