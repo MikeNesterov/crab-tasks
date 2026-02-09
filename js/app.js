@@ -63,7 +63,9 @@ function parseCronToHuman(cronExpr, tz) {
 
 async function loadTasks() {
   try {
-    const res = await fetch(DATA_URL);
+    // Add cache-busting to avoid stale data
+    const cacheBuster = `?t=${Date.now()}`;
+    const res = await fetch(DATA_URL + cacheBuster);
     if (!res.ok) throw new Error('Failed to load tasks');
     return await res.json();
   } catch (err) {
