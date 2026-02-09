@@ -2,7 +2,8 @@
   "lastUpdated": "2026-02-09",
   "baseCurrency": "USD",
   "fxRates": {
-    "BYN_USD": 0.31
+    "BYN_USD": 0.31,
+    "EUR_USD": 1.08
   },
   "accounts": [
     {
@@ -49,6 +50,23 @@
     }
   ],
   "investments": [
+    {
+      "id": "etf-eunl",
+      "name": "iShares MSCI World (EUNL)",
+      "type": "etf",
+      "ticker": "EUNL",
+      "isin": "IE00B4L5YM83",
+      "quantity": 47.99,
+      "purchasePrice": 114.60,
+      "currentPrice": 113.05,
+      "currency": "EUR",
+      "value": 5426,
+      "valueUSD": 5860,
+      "status": "active",
+      "broker": "Revolut",
+      "purchaseDate": "2026-01-15",
+      "note": "MSCI World Index ETF"
+    },
     {
       "id": "stock-pltr",
       "name": "Palantir (PLTR)",
@@ -103,12 +121,13 @@
     }
   ],
   "summary": {
-    "totalAssets": 83778,
+    "totalAssets": 89638,
     "totalCash": 59106,
     "totalDeposits": 3145,
-    "totalInvestments": 21527,
+    "totalInvestments": 27387,
+    "activeInvestments": 5860,
     "blockedInvestments": 21527,
-    "availableAssets": 62251
+    "availableAssets": 68111
   },
-  "notes": "Акции заблокированы после санкций 2022. Надежда на разблокировку в будущем."
+  "notes": "Акции в Альфа-Банк BY заблокированы после санкций 2022. Revolut - активные инвестиции."
 }
