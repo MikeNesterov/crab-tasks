@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2026-02-09",
+  "lastUpdated": "2026-02-10",
   "baseCurrency": "USD",
   "fxRates": {
     "BYN_USD": 0.31,
-    "EUR_USD": 1.08,
+    "EUR_USD": 1.19,
     "PLN_USD": 0.28
   },
   "accounts": [
@@ -66,10 +66,10 @@
       "isin": "IE00B4L5Y983",
       "quantity": 53,
       "purchasePrice": 112.99,
-      "currentPrice": 112.91,
+      "currentPrice": 111.17,
       "currency": "EUR",
-      "value": 5984,
-      "valueUSD": 6463,
+      "value": 5892,
+      "valueUSD": 7011,
       "status": "active",
       "broker": "Revolut",
       "purchaseDate": "2026-01-15",
@@ -82,8 +82,8 @@
       "ticker": "PLTR",
       "quantity": 35,
       "purchasePrice": 13.91,
-      "currentPrice": 151.86,
-      "value": 5315,
+      "currentPrice": 142.94,
+      "value": 5003,
       "status": "blocked",
       "broker": "Альфа-Банк BY",
       "note": "Заблокированы из-за санкций. Цена на 31.01.2026."
@@ -95,8 +95,8 @@
       "ticker": "META",
       "quantity": 3,
       "purchasePrice": 240.00,
-      "currentPrice": 738.31,
-      "value": 2215,
+      "currentPrice": 677.22,
+      "value": 2032,
       "status": "blocked",
       "broker": "Альфа-Банк BY",
       "note": "Заблокированы из-за санкций. Цена на 31.01.2026."
@@ -108,8 +108,8 @@
       "ticker": "BYDDY",
       "quantity": 1224,
       "purchasePrice": 23.33,
-      "currentPrice": 12.79,
-      "value": 15655,
+      "currentPrice": 11.95,
+      "value": 14627,
       "status": "blocked",
       "broker": "Альфа-Банк BY",
       "note": "После 6:1 сплита (июль 2025): было 204 → стало 1224. Банк не обновил, реальное кол-во 1224. Заблокированы."
@@ -159,13 +159,13 @@
     }
   ],
   "summary": {
-    "totalLiquidAssets": 144454,
+    "totalLiquidAssets": 143479,
     "totalCash": 111661,
     "totalDeposits": 3145,
-    "totalInvestments": 29648,
-    "activeInvestments": 6463,
-    "blockedInvestments": 23185,
-    "availableLiquid": 121269,
+    "totalInvestments": 28673,
+    "activeInvestments": 7011,
+    "blockedInvestments": 21662,
+    "availableLiquid": 111817,
     "reserveCash": 10000,
     "investableCash": 63000
   },
