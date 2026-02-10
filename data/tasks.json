@@ -1,7 +1,7 @@
 {
   "cronJobs": [
     {
-      "id": "cron-digest",
+      "id": "47ee479f-0715-4ff3-89d3-9ae0dc5d2c24",
       "name": "AI Daily Digest",
       "schedule": "0 5 * * *",
       "tz": "UTC",
@@ -10,25 +10,7 @@
       "project": "openclaw"
     },
     {
-      "id": "cron-features",
-      "name": "Daily Feature Ideas",
-      "schedule": "30 5 * * *",
-      "tz": "Europe/Warsaw",
-      "enabled": true,
-      "hidden": false,
-      "project": "crab-tasks"
-    },
-    {
-      "id": "cron-update",
-      "name": "OpenClaw Update Check",
-      "schedule": "40 5 * * *",
-      "tz": "Europe/Warsaw",
-      "enabled": true,
-      "hidden": false,
-      "project": "openclaw"
-    },
-    {
-      "id": "cron-learning",
+      "id": "7761e0ff-8d72-4133-875f-0d34a7858d4f",
       "name": "AI Dev Learning (Daily)",
       "schedule": "30 5 * * *",
       "tz": "Europe/Warsaw",
@@ -37,7 +19,16 @@
       "project": "personal"
     },
     {
-      "id": "cron-backup",
+      "id": "0ada3986-de18-4f97-ac27-00acaef07373",
+      "name": "Daily Feature Ideas",
+      "schedule": "30 5 * * *",
+      "tz": "Europe/Warsaw",
+      "enabled": true,
+      "hidden": false,
+      "project": "crab-tasks"
+    },
+    {
+      "id": "836bd1d7-dcd7-44b4-b2d9-4ff8df70d735",
       "name": "Daily S3 Backup",
       "schedule": "0 3 * * *",
       "tz": "UTC",
@@ -46,16 +37,7 @@
       "project": "openclaw"
     },
     {
-      "id": "cron-finplan",
-      "name": "Финплан: ежемесячный чекин",
-      "schedule": "0 10 1 * *",
-      "tz": "Europe/Warsaw",
-      "enabled": true,
-      "hidden": false,
-      "project": "personal"
-    },
-    {
-      "id": "cron-prices",
+      "id": "4a53058a-e650-452a-8957-7d7742fdc3d0",
       "name": "Finance: Daily Price Update",
       "schedule": "0 6 * * *",
       "tz": "Europe/Warsaw",
@@ -64,32 +46,43 @@
       "project": "crab-tasks"
     },
     {
-      "id": "cron-worker",
+      "id": "b4599ca6-3a1e-4290-ba27-7c18f6e3fc9a",
+      "name": "OpenClaw Update Check",
+      "schedule": "40 5 * * *",
+      "tz": "Europe/Warsaw",
+      "enabled": true,
+      "hidden": false,
+      "project": "openclaw"
+    },
+    {
+      "id": "73bbb1a8-40e5-4eb5-adb8-5bc73719535a",
       "name": "Task Worker",
-      "schedule": "*/30 * * * *",
+      "schedule": "* * * * *",
       "tz": "Europe/Warsaw",
       "enabled": true,
       "hidden": false,
       "project": "crab-tasks"
     },
     {
-      "id": "cron-weekly",
+      "id": "a7133ec6-b586-41c7-a63a-05dfbc7c324b",
       "name": "Weekly Summary",
       "schedule": "0 18 * * 0",
       "tz": "Europe/Warsaw",
       "enabled": true,
       "hidden": false,
       "project": "crab-tasks"
+    },
+    {
+      "id": "11aa6207-0874-4f4f-a8b7-401bc9e60137",
+      "name": "Финплан: ежемесячный чекин",
+      "schedule": "0 10 1 * *",
+      "tz": "Europe/Warsaw",
+      "enabled": true,
+      "hidden": false,
+      "project": "personal"
     }
   ],
   "todo": [
-    {
-      "id": "todo-1",
-      "title": "Добавить синхронизацию tasks.json с реальными cron jobs",
-      "priority": "medium",
-      "created": "2026-02-09",
-      "project": "crab-tasks"
-    },
     {
       "id": "todo-4",
       "title": "Подготовка к O-1 визе — собрать материалы",
@@ -116,6 +109,14 @@
     }
   ],
   "done": [
+    {
+      "id": "todo-1",
+      "title": "Добавить синхронизацию tasks.json с реальными cron jobs",
+      "priority": "medium",
+      "created": "2026-02-09",
+      "completed": "2026-02-10",
+      "project": "crab-tasks"
+    },
     {
       "id": "done-1",
       "title": "Human-readable cron expressions",
