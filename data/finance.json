@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-12",
+  "lastUpdated": "2026-02-13",
   "baseCurrency": "USD",
   "fxRates": {
     "BYN_USD": 0.31,
@@ -66,10 +66,10 @@
       "isin": "IE00B4L5Y983",
       "quantity": 53,
       "purchasePrice": 112.99,
-      "currentPrice": 113.41,
+      "currentPrice": 112.36,
       "currency": "EUR",
-      "value": 6011,
-      "valueUSD": 7153,
+      "value": 5955,
+      "valueUSD": 7087,
       "status": "active",
       "broker": "Revolut",
       "purchaseDate": "2026-01-15",
@@ -82,11 +82,11 @@
       "ticker": "PLTR",
       "quantity": 35,
       "purchasePrice": 13.91,
-      "currentPrice": 135.80,
-      "value": 4753,
+      "currentPrice": 129.13,
+      "value": 4520,
       "status": "blocked",
       "broker": "Альфа-Банк BY",
-      "note": "Заблокированы из-за санкций. Цена на 12.02.2026."
+      "note": "Заблокированы из-за санкций. Цена на 13.02.2026."
     },
     {
       "id": "stock-meta",
@@ -95,11 +95,11 @@
       "ticker": "META",
       "quantity": 3,
       "purchasePrice": 240.00,
-      "currentPrice": 668.69,
-      "value": 2006,
+      "currentPrice": 649.81,
+      "value": 1949,
       "status": "blocked",
       "broker": "Альфа-Банк BY",
-      "note": "Заблокированы из-за санкций. Цена на 12.02.2026."
+      "note": "Заблокированы из-за санкций. Цена на 13.02.2026."
     },
     {
       "id": "stock-byddy",
@@ -159,13 +159,13 @@
     }
   ],
   "summary": {
-    "totalLiquidAssets": 143761,
+    "totalLiquidAssets": 143405,
     "totalCash": 111661,
     "totalDeposits": 3145,
-    "totalInvestments": 28955,
-    "activeInvestments": 7153,
-    "blockedInvestments": 21802,
-    "availableLiquid": 111959,
+    "totalInvestments": 28599,
+    "activeInvestments": 7087,
+    "blockedInvestments": 21512,
+    "availableLiquid": 111893,
     "reserveCash": 10000,
     "investableCash": 63000
   },
