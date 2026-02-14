@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-13",
+  "lastUpdated": "2026-02-14",
   "baseCurrency": "USD",
   "fxRates": {
     "BYN_USD": 0.31,
@@ -66,10 +66,10 @@
       "isin": "IE00B4L5Y983",
       "quantity": 53,
       "purchasePrice": 112.99,
-      "currentPrice": 112.36,
+      "currentPrice": 111.17,
       "currency": "EUR",
-      "value": 5955,
-      "valueUSD": 7087,
+      "value": 5892,
+      "valueUSD": 7011,
       "status": "active",
       "broker": "Revolut",
       "purchaseDate": "2026-01-15",
@@ -82,8 +82,8 @@
       "ticker": "PLTR",
       "quantity": 35,
       "purchasePrice": 13.91,
-      "currentPrice": 129.13,
-      "value": 4520,
+      "currentPrice": 129.00,
+      "value": 4515,
       "status": "blocked",
       "broker": "Альфа-Банк BY",
       "note": "Заблокированы из-за санкций. Цена на 13.02.2026."
@@ -95,8 +95,8 @@
       "ticker": "META",
       "quantity": 3,
       "purchasePrice": 240.00,
-      "currentPrice": 649.81,
-      "value": 1949,
+      "currentPrice": 639.77,
+      "value": 1919,
       "status": "blocked",
       "broker": "Альфа-Банк BY",
       "note": "Заблокированы из-за санкций. Цена на 13.02.2026."
@@ -108,8 +108,8 @@
       "ticker": "BYDDY",
       "quantity": 1224,
       "purchasePrice": 23.33,
-      "currentPrice": 12.29,
-      "value": 15043,
+      "currentPrice": 12.27,
+      "value": 15018,
       "status": "blocked",
       "broker": "Альфа-Банк BY",
       "note": "После 6:1 сплита (июль 2025): было 204 → стало 1224. Банк не обновил, реальное кол-во 1224. Заблокированы."
@@ -159,13 +159,13 @@
     }
   ],
   "summary": {
-    "totalLiquidAssets": 143405,
+    "totalLiquidAssets": 143269,
     "totalCash": 111661,
     "totalDeposits": 3145,
-    "totalInvestments": 28599,
-    "activeInvestments": 7087,
-    "blockedInvestments": 21512,
-    "availableLiquid": 111893,
+    "totalInvestments": 28463,
+    "activeInvestments": 7011,
+    "blockedInvestments": 21452,
+    "availableLiquid": 111817,
     "reserveCash": 10000,
     "investableCash": 63000
   },
