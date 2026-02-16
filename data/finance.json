@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-15",
+  "lastUpdated": "2026-02-16",
   "baseCurrency": "USD",
   "fxRates": {
     "BYN_USD": 0.31,
@@ -82,11 +82,11 @@
       "ticker": "PLTR",
       "quantity": 35,
       "purchasePrice": 13.91,
-      "currentPrice": 131.72,
-      "value": 4610,
+      "currentPrice": 131.75,
+      "value": 4611,
       "status": "blocked",
       "broker": "Альфа-Банк BY",
-      "note": "Заблокированы из-за санкций. Цена на 14.02.2026."
+      "note": "Заблокированы из-за санкций. Цена на 16.02.2026."
     },
     {
       "id": "stock-meta",
@@ -95,11 +95,11 @@
       "ticker": "META",
       "quantity": 3,
       "purchasePrice": 240.00,
-      "currentPrice": 643.00,
-      "value": 1929,
+      "currentPrice": 670.37,
+      "value": 2011,
       "status": "blocked",
       "broker": "Альфа-Банк BY",
-      "note": "Заблокированы из-за санкций. Цена на 14.02.2026."
+      "note": "Заблокированы из-за санкций. Цена на 16.02.2026."
     },
     {
       "id": "stock-byddy",
@@ -108,8 +108,8 @@
       "ticker": "BYDDY",
       "quantity": 1224,
       "purchasePrice": 23.33,
-      "currentPrice": 12.20,
-      "value": 14933,
+      "currentPrice": 12.34,
+      "value": 15104,
       "status": "blocked",
       "broker": "Альфа-Банк BY",
       "note": "После 6:1 сплита (июль 2025): было 204 → стало 1224. Банк не обновил, реальное кол-во 1224. Заблокированы."
@@ -159,12 +159,12 @@
     }
   ],
   "summary": {
-    "totalLiquidAssets": 143289,
+    "totalLiquidAssets": 143543,
     "totalCash": 111661,
     "totalDeposits": 3145,
-    "totalInvestments": 28483,
+    "totalInvestments": 28737,
     "activeInvestments": 7011,
-    "blockedInvestments": 21472,
+    "blockedInvestments": 21726,
     "availableLiquid": 111817,
     "reserveCash": 10000,
     "investableCash": 63000
