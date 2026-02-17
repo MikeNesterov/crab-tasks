@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-16",
+  "lastUpdated": "2026-02-17",
   "baseCurrency": "USD",
   "fxRates": {
     "BYN_USD": 0.31,
@@ -66,10 +66,10 @@
       "isin": "IE00B4L5Y983",
       "quantity": 53,
       "purchasePrice": 112.99,
-      "currentPrice": 111.17,
+      "currentPrice": 112.32,
       "currency": "EUR",
-      "value": 5892,
-      "valueUSD": 7011,
+      "value": 5953,
+      "valueUSD": 7084,
       "status": "active",
       "broker": "Revolut",
       "purchaseDate": "2026-01-15",
@@ -82,11 +82,11 @@
       "ticker": "PLTR",
       "quantity": 35,
       "purchasePrice": 13.91,
-      "currentPrice": 131.75,
-      "value": 4611,
+      "currentPrice": 131.36,
+      "value": 4598,
       "status": "blocked",
       "broker": "Альфа-Банк BY",
-      "note": "Заблокированы из-за санкций. Цена на 16.02.2026."
+      "note": "Заблокированы из-за санкций. Цена на 17.02.2026."
     },
     {
       "id": "stock-meta",
@@ -95,11 +95,11 @@
       "ticker": "META",
       "quantity": 3,
       "purchasePrice": 240.00,
-      "currentPrice": 670.37,
-      "value": 2011,
+      "currentPrice": 639.77,
+      "value": 1919,
       "status": "blocked",
       "broker": "Альфа-Банк BY",
-      "note": "Заблокированы из-за санкций. Цена на 16.02.2026."
+      "note": "Заблокированы из-за санкций. Цена на 17.02.2026."
     },
     {
       "id": "stock-byddy",
@@ -108,8 +108,8 @@
       "ticker": "BYDDY",
       "quantity": 1224,
       "purchasePrice": 23.33,
-      "currentPrice": 12.34,
-      "value": 15104,
+      "currentPrice": 12.47,
+      "value": 15263,
       "status": "blocked",
       "broker": "Альфа-Банк BY",
       "note": "После 6:1 сплита (июль 2025): было 204 → стало 1224. Банк не обновил, реальное кол-во 1224. Заблокированы."
@@ -159,13 +159,13 @@
     }
   ],
   "summary": {
-    "totalLiquidAssets": 143543,
+    "totalLiquidAssets": 143670,
     "totalCash": 111661,
     "totalDeposits": 3145,
-    "totalInvestments": 28737,
-    "activeInvestments": 7011,
-    "blockedInvestments": 21726,
-    "availableLiquid": 111817,
+    "totalInvestments": 28864,
+    "activeInvestments": 7084,
+    "blockedInvestments": 21780,
+    "availableLiquid": 111890,
     "reserveCash": 10000,
     "investableCash": 63000
   },
